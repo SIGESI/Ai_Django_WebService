@@ -123,5 +123,5 @@ USE_TZ = True
 STATIC_URL = '/Ai_Django_WebService/static/'
 STATIC_DIR=BASE_DIR+"/Ai_Django_WebService"
 STATICFILES_DIRS=(
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(STATIC_DIR, 'static'),
 )
