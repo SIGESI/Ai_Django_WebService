@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
+VOLUME ["/usr/AIDjangoWebApp/Ai_Django_WebService"]
+
 ENTRYPOINT ["python", "manage.py"]
 
 CMD ["runserver", "0.0.0.0:8080"]
