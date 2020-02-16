@@ -1,6 +1,6 @@
 # Webservice_base  
 This service contains a folder shared by all services.
     
-    -Ai_Django_WebService
+    -Sharedvolume
     
 The exposed port : 8080

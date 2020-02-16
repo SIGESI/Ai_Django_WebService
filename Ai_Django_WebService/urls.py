@@ -16,25 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from App1_login_home.views import login # or from myApp_2_login import views
-from App1_login_home.views import login_action
-from App1_login_home.views import index
-from App1_login_home.views import index_action
-
-from App2_algo1.views import algo1, algo1_upload
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # app1 login
-    path('login/', login),
-    path('login_action/', login_action),
-    # app1 home(index)
-    path('index/', index),
-    path('index_action/', index_action),
-    # app2 algo1
-    path('algo1/', algo1),
-    path('algo1_upload/', algo1_upload),
 ]
 
 
