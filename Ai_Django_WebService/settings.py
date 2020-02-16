@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'Ai_Django_WebService.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DB_DIR=BASE_DIR+"/Ai_Django_WebService"
+DB_DIR=BASE_DIR+"/Sharedvolume"
 
 DATABASES = {
     'default': {
@@ -120,8 +120,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/Ai_Django_WebService/static/'
-STATIC_DIR=BASE_DIR+"/Ai_Django_WebService"
+STATIC_URL = '/Sharedvolume/static/'
+STATIC_DIR=BASE_DIR+"/Sharedvolume"
 STATICFILES_DIRS=(
     os.path.join(STATIC_DIR, 'static'),
 )
