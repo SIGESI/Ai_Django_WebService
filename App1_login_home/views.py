@@ -24,3 +24,14 @@ def login_action(request):
             return render(request,'login.html', {'error': 'username or password error!'})
     else:
         return render(request,'login.html')
+
+def index(request):
+    #return HttpResponse("myapp2")
+
+    return render(request, "index.html")
+
+def index_action(request):
+    #return HttpResponse("myapp2")
+
+    response = HttpResponseRedirect('/algo1/')
+    return response

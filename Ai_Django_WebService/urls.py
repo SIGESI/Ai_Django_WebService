@@ -18,10 +18,15 @@ from django.urls import path
 
 from App1_login_home.views import login # or from myApp_2_login import views
 from App1_login_home.views import login_action
+from App1_login_home.views import index
+from App1_login_home.views import index_action
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # app1 login
     path('login/', login),
     path('login_action/', login_action),
+    # app1 home(index)
+    path('index/', index),
+    path('index_action/', index_action),
 ]
