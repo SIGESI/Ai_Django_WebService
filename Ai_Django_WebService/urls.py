@@ -21,6 +21,9 @@ from App1_login_home.views import login_action
 from App1_login_home.views import index
 from App1_login_home.views import index_action
 
+from App2_algo1.views import algo1, algo1_upload
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # app1 login
@@ -29,5 +32,9 @@ urlpatterns = [
     # app1 home(index)
     path('index/', index),
     path('index_action/', index_action),
+    # app2 algo1
+    path('algo1/', algo1),
+    path('algo1_upload/', algo1_upload),
 ]
+
 
