@@ -19,4 +19,5 @@ def algo1_upload(request):
         for chunk in File.chunks():
             f.write(chunk)
     category="dog"
+    print("this moment")
     return render(request, "algo1.html",{"data":category},locals())

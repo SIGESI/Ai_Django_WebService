@@ -81,7 +81,7 @@ DB_DIR=BASE_DIR+"/Sharedvolume"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_DIR, '../Sharedvolume/db.sqlite3'), #Shared database for all services(Deploy on different docker containers)
+        'NAME': os.path.join(DB_DIR, 'db.sqlite3'), #Shared database for all services(Deploy on different docker containers)
     }
 }
 
@@ -124,5 +124,5 @@ USE_TZ = True
 STATIC_URL = '/Sharedvolume/static/'
 STATIC_DIR=BASE_DIR+"/Sharedvolume"
 STATICFILES_DIRS=(
-    os.path.join(STATIC_DIR, '../Sharedvolume/static'),
+    os.path.join(STATIC_DIR, 'static'),
 )
