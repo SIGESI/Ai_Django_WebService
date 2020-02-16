@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from App1_login_home.views import login # or from myApp_2_login import views
+from App1_login_home.views import login_action
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # app1 login
+    path('login/', login),
+    path('login_action/', login_action),
 ]
