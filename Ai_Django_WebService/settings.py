@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'Ai_Django_WebService.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DB_DIR=BASE_DIR+"/Ai_Django_WebService"
+DB_DIR=BASE_DIR+"/Sharedvolume"
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(DB_DIR, 'db.sqlite3'), #Shared database for all services(Deploy on different docker containers)
+        'NAME': os.path.join(DB_DIR, '../Sharedvolume/db.sqlite3'), #Shared database for all services(Deploy on different docker containers)
     }
 }
 
@@ -122,8 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/Ai_Django_WebService/static/'
-STATIC_DIR=BASE_DIR+"/Ai_Django_WebService"
+STATIC_URL = '/Sharedvolume/static/'
+STATIC_DIR=BASE_DIR+"/Sharedvolume"
 STATICFILES_DIRS=(
-    os.path.join(STATIC_DIR, 'static'),
+    os.path.join(STATIC_DIR, '../Sharedvolume/static'),
 )
