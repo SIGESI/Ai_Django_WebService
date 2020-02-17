@@ -1,12 +1,16 @@
 from django.shortcuts import render
 import os
+from json import load
+from urllib import request as req
 # Create your views here.
 def algo1(request):
     #return HttpResponse("myapp2")
 
+    ipindex = load(req.urlopen('http://jsonip.com'))['ip']
+    ipindex = "http://" + str(ipindex) + ":8005/algo1/"
     category="cat"
-
-    return render(request, "algo1.html",{"data":category})
+    dict={'data': category, 'ipindex': ipindex}
+    return render(request, "algo1.html",dict)
 
 def algo1_upload(request):
 
@@ -19,4 +23,7 @@ def algo1_upload(request):
         for chunk in File.chunks():
             f.write(chunk)
     c="humen"
-    return render(request, "algo1.html",{"data":c})#,locals())
+    ipindex = load(req.urlopen('http://jsonip.com'))['ip']
+    ipindex = "http://" + str(ipindex) + ":8005/algo1/"
+    dict = {'data': c, 'ipindex': ipindex}
+    return render(request, "algo1.html",dict)#,locals())
