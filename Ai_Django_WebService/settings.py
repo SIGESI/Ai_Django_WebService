@@ -121,8 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/Sharedvolume/static/'
 STATIC_DIR=BASE_DIR+"/Sharedvolume"
+STATIC_URL = '/Sharedvolume/static/'
 STATICFILES_DIRS=(
     os.path.join(STATIC_DIR, 'static'),
 )

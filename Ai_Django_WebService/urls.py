@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from App2_algo1.views import algo1, algo1_upload
-
+from App2_algo1.views import algo1
+from App2_algo1.views import algo1_upload
 urlpatterns = [
     path('admin/', admin.site.urls),
     # app2 algo1
