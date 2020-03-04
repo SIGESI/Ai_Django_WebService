@@ -11,8 +11,8 @@ WORKDIR /usr/AIDjangoWebApp
 COPY . /usr/AIDjangoWebApp
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 8009
 
 ENTRYPOINT ["python", "manage.py"]
 
-CMD ["runserver", "0.0.0.0:8000"]
+CMD ["runserver", "0.0.0.0:8009"]

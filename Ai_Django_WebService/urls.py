@@ -18,13 +18,14 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from App_helloWorld.views import hello
+from App_helloWorld.views import hello,helloAction
 #from Api_upload.views import FileView
 #from Api_download.views import DonwloadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello),
+    path('helloAction/', helloAction),
 
     path('api/', include('Api_upload.url')),   #path('upload/', FileView.as_view(), name='file-upload'),
     path('api/', include('Api_download.url')), #path('download/', DonwloadView.as_view(), name='file-download'),

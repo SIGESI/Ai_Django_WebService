@@ -6,5 +6,34 @@
 </head>
 <body>
     hello, welcome to use our template
+    <div class="textDiv text-center">
+                <form action="/helloAction/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="textDiv text-center">
+                    Select an image : <input type="file" name="file" size="50" id='input1' onchange="showPreview(this)" />
+                        <img id="portrait" src="" style="display:none;" />
+                    Input remark: <input type="text" name="remark" placeholder="remark..." id="remark">
+                        <input type="submit" value="Recognize" id='input'/>
+                    </div>
+                </form>
+    </div>
 </body>
+<script type="text/javascript">
+  function showPreview(source) {
+  var file = source.files[0];
+  if(window.FileReader) {
+   var fr = new FileReader();
+  console.log(fr);
+  var portrait = document.getElementById('portrait');
+  fr.onloadend = function(e) {
+  portrait.src = e.target.result;
+  };
+  fr.readAsDataURL(file);
+  portrait.style.display = 'block';
+  portrait.style.alignItems="center";
+  portrait.style.alignSelf="center";
+  portrait.style.alignContent="center";
+  }
+  }
+</script>
 </html>
