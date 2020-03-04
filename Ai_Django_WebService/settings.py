@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'App_helloWorld',
+    #'rest_framework',
+    'Api_upload',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,6 @@ STATIC_DIR=BASE_DIR+"/Sharedvolume"
 STATICFILES_DIRS=(
     os.path.join(STATIC_DIR, 'static'),
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
