@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from  Api_upload.models import File
 # Create your views here.
 from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
@@ -18,10 +18,14 @@ class DonwloadView(APIView):
                 else:
                     break
 
-        fn = open('test.zip', 'rb')
-#        file = open('crm/models.py', 'rb')
-        response = StreamingHttpResponse(file_iterator(fn))
+        #fn = open('test.zip', 'rb')
+        #response = StreamingHttpResponse(file_iterator(fn))
+        #file = open('f1.file', 'rb')
+
+        f1=File.objects.get(id=3)
+        response = StreamingHttpResponse(f1.file)
+        name=f1.file.name
         response['Content-Type'] = 'application/octet-stream'
-        response['Content-Disposition'] = 'attachment;filename="test.zip"'
+        response['Content-Disposition'] = "attachment;"+"filename="+name
 
         return response
