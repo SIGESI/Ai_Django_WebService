@@ -15,7 +15,7 @@ host=host+'?access_token='+access_token
 data={}
 data['access_token']=access_token
 data['image'] =img
-print(img)
-#res = requests.post(url=host,headers=headers,data=data)
-#req=res.json()
-#print(req['result'])
+#print(img)
+res = requests.post(url=host,headers=headers,data=data)
+req=res.json()
+print(req['result'])
