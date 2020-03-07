@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>CNN Algorithme</title>
+    <title>Image recognition</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/bootstrap.min.css" >
@@ -146,7 +146,7 @@
     <img id="portrait" src="" style="display:none;" />
     -->
             <div class="textDiv text-center">
-                <form action="/algo1_upload/" method="post" enctype="multipart/form-data">
+                <form action="/img_rec_action/" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="textDiv text-center">
                     Select an image : <input type="file" name="myfile" size="50" id='input1' onchange="showPreview(this)" />
@@ -175,11 +175,11 @@
             <!-- Team Item Starts -->
             <div class="team-item text-center" >
               <div class="team-img text-center">
-                <img class="img-fluid " src="/Sharedvolume/static/home/img/team/team-01.jpg" alt="">
+                <img class="img-fluid " src= "{{img_src}}" alt="">
               </div>
               <div class="info-text">
                 <h3><a href="#">Category</a></h3>
-                <p> {{ data}}</p>
+                <p> {{data}}</p>
               </div>
             </div>
             <!-- Team Item Ends -->
