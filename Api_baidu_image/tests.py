@@ -3,7 +3,7 @@ import requests
 import base64
 
 # Create your tests here.
-f = open('tiger.jpg', 'rb')
+f = open('cat2.jpg', 'rb')
 img = base64.b64encode(f.read())
 host = 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general'
 headers={
