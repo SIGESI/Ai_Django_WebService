@@ -8,14 +8,23 @@ services:
   app1:
     image: mysong/ai_django_webservice:app1
     ports:
-      - "8005:8000"
+      - "8005:8005"
     depends_on:
       - base
     volumes_from:
       - base
 
   app2:
-    image: mysong/ai_django_webservice:app2
+    image: mysong/ai_django_webservice:api
+    ports:
+      - "8009:8009"
+    depends_on:
+      - base
+    volumes_from:
+      - base
+
+  app3:
+    image: mysong/ai_django_webservice:app3
     ports:
       - "8001:8001"
     depends_on:
