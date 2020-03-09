@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>this is hello</title>
+
+    <link rel="stylesheet" href="/Sharedvolume/static/listcss/amazeui.min.css" />
+
 </head>
 <body>
     hello, welcome to use our template
@@ -17,6 +20,50 @@
                     </div>
                 </form>
     </div>
+ <!--rec results list-->
+
+    <div class="am-u-sm-12">
+        <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+            <thead>
+                <tr>
+                    <th>keyword</th>
+                    <th>root</th>
+                    <th>score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="gradeX">
+                    <td>{{ keyword1}}</td>
+                    <td>{{ root1}}</td>
+                    <td>{{ score1}}</td>
+                </tr>
+                <tr class="even gradeC">
+                    <td>{{ keyword2}}</td>
+                    <td>{{ root2}}</td>
+                    <td>{{ score2}}</td>
+                </tr>
+                <tr class="gradeX">
+                    <td>{{ keyword3}}</td>
+                    <td>{{ root3}}</td>
+                    <td>{{ score3}}</td>
+                </tr>
+                <tr class="even gradeC">
+                    <td>{{ keyword4}}</td>
+                    <td>{{ root4}}</td>
+                    <td>{{ score4}}</td>
+                </tr>
+                <tr class="even gradeC">
+                    <td>{{ keyword5}}</td>
+                    <td>{{ root5}}</td>
+                    <td>{{ score5}}</td>
+                </tr>
+
+                <!-- more data -->
+            </tbody>
+        </table>
+    </div>
+
+
 </body>
 <script type="text/javascript">
   function showPreview(source) {

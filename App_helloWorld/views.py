@@ -19,4 +19,21 @@ def helloAction(request):
     fileDic = {'file': request.FILES.get("file", None)}
     rmarkDic = {'remark': request.POST.get("remark") } # post.get -> WSGI request
     requests.post(url,data=rmarkDic, files=fileDic)
-    return render(request, "hello.html")
+
+    recurl="http://localhost:8000/api/image_recognition/"
+    rep=requests.get(recurl,data=rmarkDic)
+
+    keyword=[]
+    root=[]
+    score=[]
+    dict = {}
+    resjson=rep.json()
+    for i in range(5):
+        #keyword[i]= resjson['result'][i]['keyword']
+        #root[i]= resjson['result'][i]['root']
+        #score[i]= resjson['result'][i]['score']
+        dict['keyword'+str(i+1)]=resjson['result'][i]['keyword']
+        dict['root' + str(i+1)] = resjson['result'][i]['root']
+        dict['score' + str(i+1)] = resjson['result'][i]['score']
+
+    return render(request, "hello.html",dict)
