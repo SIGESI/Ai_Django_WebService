@@ -3,6 +3,7 @@ import os
 from json import load
 from urllib import request as req
 import requests
+import json
 # Create your views here.
 
 # Create your views here.
@@ -32,13 +33,14 @@ def img_rec_action(request):
     root = []
     score = []
     dict = {}
-    resjson = rep.json()
+    #resjson = rep.json()
+    resjson = json.loads(rep, strict=False)
     for i in range(5):
         # keyword[i]= resjson['result'][i]['keyword']
         # root[i]= resjson['result'][i]['root']
         # score[i]= resjson['result'][i]['score']
-        dict['keyword' + str(i + 1)] = resjson['result'][i]['keyword']
-        dict['root' + str(i + 1)] = resjson['result'][i]['root']
-        dict['score' + str(i + 1)] = resjson['result'][i]['score']
+        dict["keyword" + str(i + 1)] = resjson['result'][i]['keyword']
+        dict["root" + str(i + 1)] = resjson['result'][i]['root']
+        dict["score" + str(i + 1)] = resjson['result'][i]['score']
 
     return render(request, "img_recognition.html", dict)
