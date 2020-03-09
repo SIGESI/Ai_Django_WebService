@@ -33,11 +33,11 @@ def index(request):
     ip1 = load(req.urlopen('http://jsonip.com'))['ip']
     #ip1="localhost"
     #print(ip1)
-    ip1="http://"+str(ip1)+":8001/algo1/"
-    return render(request, "index.html",{'ipalgo1': ip1})
+    ip1="http://"+str(ip1)+":8001/img_rec/"
+    return render(request, "index.html",{'ipimgrec': ip1})
 
 def index_action(request):
     #return HttpResponse("myapp2")
 
-    response = HttpResponseRedirect('/algo1/')
+    response = HttpResponseRedirect('/img_rec/')
     return response
