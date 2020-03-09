@@ -26,3 +26,4 @@ def file_iterator(fn, chunk_size=512):
             yield c
         else:
             break
+

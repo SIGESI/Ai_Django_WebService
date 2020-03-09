@@ -1,9 +1,10 @@
 from django.test import TestCase
 import requests
 import base64
+from googletrans import Translator
 
 # Create your tests here.
-f = open('cat2.jpg', 'rb')
+f = open('tiger.jpg', 'rb')
 img = base64.b64encode(f.read())
 host = 'https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general'
 headers={
@@ -18,4 +19,9 @@ data['image'] =img
 #print(img)
 res = requests.post(url=host,headers=headers,data=data)
 req=res.json()
+
+translator = Translator()
+for i in range(5):
+   req['result'][i]['root']=translator.translate(req['result'][i]['root']).text
+   req['result'][i]['keyword']=translator.translate(req['result'][i]['keyword']).text
 print(req['result'])
