@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class App2Algo1Config(AppConfig):
-    name = 'App2_algo1'
+    name = 'App2_image_rec'
