@@ -25,6 +25,14 @@
     <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/main.css">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/responsive.css">
+
+    <link rel="stylesheet" href="/Sharedvolume/static/listcss/amazeui.min.css" />
+    <link href="/Sharedvolume/static/fileupassetes/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    		<!-- <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script> -->
+
+      <script src="/Sharedvolume/static/assets/js/jquery-1.11.1.min.js" ></script>
+      <script src="/Sharedvolume/static/fileupassetes/js/fileinput.js" type="text/javascript"></script>
+
   </head>
 
 
@@ -146,15 +154,20 @@
     <input type="file" name="file" onchange="showPreview(this)" />
     <img id="portrait" src="" style="display:none;" />
     -->
-            <div class="textDiv text-center">
-                <form action="/img_rec_action/" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="textDiv text-center">
-                    Select an image : <input type="file" name="myfile" size="50" id='input1' onchange="showPreview(this)" />
-                        <img id="portrait" src="" style="display:none;" />
-                        <input type="submit" value="Recognize" id='input'/>
-                    </div>
-                </form>
+            <div >
+                <hr>
+                <form enctype="multipart/form-data" action="/img_rec_action/" method="post">
+                        <label> Input remark:</label>
+                        <input id="remark" name="remark" class="file" placeholder="remark..."  type="text" multiple data-min-file-count="1">
+						<hr>
+                        {% csrf_token %}
+						<label> Select an image:</label>
+						<input id="file-0a" class="file" type="file" multiple data-min-file-count="1">
+                        <br>
+                        <button type="submit" id='input' class="btn btn-primary">Recognize</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </form>
+
             </div>
 
           <!-- Services item -->
@@ -175,13 +188,46 @@
 
             <!-- Team Item Starts -->
             <div class="team-item text-center" >
-              <div class="team-img text-center">
-                <img class="img-fluid " src= "{{img_src}}" alt="">
-              </div>
-              <div class="info-text">
-                <h3><a href="#">Category</a></h3>
-                <p> {{data}}</p>
-              </div>
+              <div class="am-u-sm-12">
+                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                    <thead>
+                        <tr>
+                            <th>keyword</th>
+                            <th>root</th>
+                            <th>score</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                        <tr class="gradeX">
+                            <td>{{ keyword1}}</td>
+                            <td>{{ root1}}</td>
+                            <td>{{ score1}}</td>
+                        </tr>
+                        <tr class="even gradeC">
+                            <td>{{ keyword2}}</td>
+                            <td>{{ root2}}</td>
+                            <td>{{ score2}}</td>
+                        </tr>
+                        <tr class="gradeX">
+                            <td>{{ keyword3}}</td>
+                            <td>{{ root3}}</td>
+                            <td>{{ score3}}</td>
+                        </tr>
+                        <tr class="even gradeC">
+                            <td>{{ keyword4}}</td>
+                            <td>{{ root4}}</td>
+                            <td>{{ score4}}</td>
+                        </tr>
+                        <tr class="even gradeC">
+                            <td>{{ keyword5}}</td>
+                            <td>{{ root5}}</td>
+                            <td>{{ score5}}</td>
+                        </tr>
+
+                        <!-- more data -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- Team Item Ends -->
       </div>
@@ -204,8 +250,8 @@
     <!-- End Preloader -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/Sharedvolume/static/home/js/jquery-min.js"></script>
-    <script src="/Sharedvolume/static/home/js/popper.min.js"></script>
+     <!--        <script src="/Sharedvolume/static/home/js/popper.min.js"></script>    -->
+
     <script src="/Sharedvolume/static/home/js/bootstrap.min.js"></script>
     <script src="/Sharedvolume/static/home/js/owl.carousel.min.js"></script>
     <script src="/Sharedvolume/static/home/js/slick.min.js"></script>

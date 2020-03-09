@@ -2,29 +2,43 @@ from django.shortcuts import render
 import os
 from json import load
 from urllib import request as req
+import requests
+# Create your views here.
+
 # Create your views here.
 def img_rec(request):
     #return HttpResponse("myapp2")
 
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
-    ipindex = "http://" + str(ipindex) + ":8005/algo1/"
-    category="cat"
-    img_src="/Sharedvolume/static/home/img/team/team-01.jpg"
-    dict={'data': category, 'ipindex': ipindex, 'img_src':img_src}
+    ipindex = "http://" + str(ipindex) + ":8005/index/"
+    dict={ 'ipindex': ipindex}
     return render(request, "img_recognition.html", dict)
 
 def img_rec_action(request):
 
-    File = request.FILES.get("myfile", None)
-    image_path = "./App2_algo1/images/"+"%s"%File.name #+ "%s" % File.name
-
-    # open file to write
-    with open(image_path, 'wb+') as f:
-        # Write to file in chunks
-        for chunk in File.chunks():
-            f.write(chunk)
-    c="humen"
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
-    ipindex = "http://" + str(ipindex) + ":8005/algo1/"
-    dict = {'data': c, 'ipindex': ipindex}
-    return render(request, "img_recognition.html", dict)#,locals())
+    url = "http://" + str(ipindex) + ":8009/api/upload/"  # production
+    #url = "http://localhost:8000/api/upload/"  # local test, Commented out in production
+
+    fileDic = {'file': request.FILES.get("file", None)}
+    rmarkDic = {'remark': request.POST.get("remark")}  # post.get -> WSGI request
+    requests.post(url, data=rmarkDic, files=fileDic)
+
+    recurl = "http://" + str(ipindex) + ":8009/api/image_recognition/"  # production
+    #recurl = "http://localhost:8000/api/image_recognition/"
+    rep = requests.get(recurl, data=rmarkDic)
+
+    keyword = []
+    root = []
+    score = []
+    dict = {}
+    resjson = rep.json()
+    for i in range(5):
+        # keyword[i]= resjson['result'][i]['keyword']
+        # root[i]= resjson['result'][i]['root']
+        # score[i]= resjson['result'][i]['score']
+        dict['keyword' + str(i + 1)] = resjson['result'][i]['keyword']
+        dict['root' + str(i + 1)] = resjson['result'][i]['root']
+        dict['score' + str(i + 1)] = resjson['result'][i]['score']
+
+    return render(request, "img_recognition.html", dict)
