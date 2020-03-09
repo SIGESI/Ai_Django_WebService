@@ -1,2 +1,6 @@
-django==2.2.5
-mysqlclient==1.4.2
+django==2.0.5
+djangorestframework==3.9.4
+requests==2.23.0
+google-cloud-vision==0.38.1
+googletrans==2.4.0
+urllib3==1.25.7
