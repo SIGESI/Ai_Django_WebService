@@ -22,12 +22,12 @@ def helloAction(request):
 
     recurl="http://localhost:8000/api/image_recognition/"
     rep=requests.get(recurl,data=rmarkDic)
-
     keyword=[]
     root=[]
     score=[]
     dict = {}
     resjson=rep.json()
+    #print(resjson)
     for i in range(5):
         #keyword[i]= resjson['result'][i]['keyword']
         #root[i]= resjson['result'][i]['root']

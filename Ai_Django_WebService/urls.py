@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('api/', include('Api_upload.url')),   #path('upload/', FileView.as_view(), name='file-upload'),
     path('api/', include('Api_download.url')), #path('download/', DonwloadView.as_view(), name='file-download'),
-    path('api/',include('Api_baidu_image.url')),
+    path('api/', include('Api_baidu_image.url')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
