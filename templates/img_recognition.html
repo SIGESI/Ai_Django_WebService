@@ -158,11 +158,11 @@
                 <hr>
                 <form enctype="multipart/form-data" action="/img_rec_action/" method="post">
                         <label> Input remark:</label>
-                        <input id="remark" name="remark" class="file" placeholder="remark..."  type="text" multiple data-min-file-count="1">
+                        <input id="remark" name="remark" class="file" placeholder="remark..."  type="text">
 						<hr>
                         {% csrf_token %}
 						<label> Select an image:</label>
-						<input id="file-0a" class="file" type="file" multiple data-min-file-count="1">
+						<input id="file-0a" class="file" type="file" name="file" >
                         <br>
                         <button type="submit" id='input' class="btn btn-primary">Recognize</button>
                         <button type="reset" class="btn btn-default">Reset</button>

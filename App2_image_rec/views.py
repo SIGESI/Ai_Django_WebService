@@ -18,29 +18,32 @@ def img_rec(request):
 def img_rec_action(request):
 
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
+
     url = "http://" + str(ipindex) + ":8009/api/upload/"  # production
     #url = "http://localhost:8000/api/upload/"  # local test, Commented out in production
+    #url = "http://15.236.92.5:8009/api/upload/"  # production
 
     fileDic = {'file': request.FILES.get("file", None)}
     rmarkDic = {'remark': request.POST.get("remark")}  # post.get -> WSGI request
+
     requests.post(url, data=rmarkDic, files=fileDic)
 
     recurl = "http://" + str(ipindex) + ":8009/api/image_recognition/"  # production
     #recurl = "http://localhost:8000/api/image_recognition/"
-    rep = requests.get(recurl, data=rmarkDic)
+    #recurl = "http://15.236.92.5:8009/api/image_recognition/"
 
-    keyword = []
-    root = []
-    score = []
+    rep = requests.get(recurl, data=rmarkDic)
     dict = {}
-    #resjson = rep.json()
-    resjson = json.loads(rep, strict=False)
+    resjson = rep.json()
+
     for i in range(5):
         # keyword[i]= resjson['result'][i]['keyword']
         # root[i]= resjson['result'][i]['root']
         # score[i]= resjson['result'][i]['score']
-        dict["keyword" + str(i + 1)] = resjson['result'][i]['keyword']
-        dict["root" + str(i + 1)] = resjson['result'][i]['root']
-        dict["score" + str(i + 1)] = resjson['result'][i]['score']
+        dict['keyword' + str(i+1)] = resjson['result'][i]['keyword']
+        dict['root' + str(i+1)] = resjson['result'][i]['root']
+        dict['score' + str(i+1)] = resjson['result'][i]['score']
 
+    ipindex = "http://" + str(ipindex) + ":8005/index/"
+    dict['ipindex'] = ipindex
     return render(request, "img_recognition.html", dict)
