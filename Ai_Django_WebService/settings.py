@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Api_upload',
     'Api_download',
     'App_helloWorld',
+    'Api_database',
 ]
 
 MIDDLEWARE = [
