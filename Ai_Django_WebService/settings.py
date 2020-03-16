@@ -127,3 +127,10 @@ STATIC_DIR=BASE_DIR+"/Sharedvolume"
 STATICFILES_DIRS=(
     os.path.join(STATIC_DIR, '../Sharedvolume/static'),
 )
+LOGIN_URL = '/login/'
+
+# session param
+SESSION_COOKIE_AGE = 60 * 20 # 20 mins
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True # Close the browser, COOKIE fails
+

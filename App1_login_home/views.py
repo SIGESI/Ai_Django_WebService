@@ -5,6 +5,7 @@ from json import load
 from urllib import request as req
 # Create your views here.
 
+from django.contrib.auth.decorators import login_required
 
 def login(request):
     #return HttpResponse("myapp2")
@@ -16,8 +17,8 @@ def login_action(request):
         password = request.POST.get('form-password', '')
         user = auth.authenticate(username=username, password=password)
         if user is not None:
-            auth.login(request, user) # 登录
-            request.session['user'] = username # 将session信息记录到浏览器
+            auth.login(request, user) # login
+            request.session['user'] = username # Record session information to the browser
             response = HttpResponseRedirect('/index/')
             return response
             #return render(request,'index.html')
@@ -25,7 +26,7 @@ def login_action(request):
             return render(request,'login.html', {'error': 'username or password error!'})
     else:
         return render(request,'login.html')
-
+@login_required
 def index(request):
     #return HttpResponse("myapp2")
 
@@ -35,7 +36,7 @@ def index(request):
     #print(ip1)
     ip1="http://"+str(ip1)+":8001/img_rec/"
     return render(request, "index.html",{'ipimgrec': ip1})
-
+@login_required
 def index_action(request):
     #return HttpResponse("myapp2")
 
