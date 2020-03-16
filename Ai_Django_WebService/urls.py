@@ -20,6 +20,8 @@ from App1_login_home.views import login # or from myApp_2_login import views
 from App1_login_home.views import login_action
 from App1_login_home.views import index
 from App1_login_home.views import index_action
+from App2_image_rec.views import img_rec
+from App2_image_rec.views import img_rec_action
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +31,6 @@ urlpatterns = [
     # app1 home(index)
     path('index/', index),
     path('index_action/', index_action),
+    path('img_rec/', img_rec),
+    path('img_rec_action/', img_rec_action),
 ]
