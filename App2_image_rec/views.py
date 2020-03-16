@@ -5,16 +5,22 @@ from urllib import request as req
 import requests
 import json
 # Create your views here.
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def img_rec(request):
     #return HttpResponse("myapp2")
 
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
     ipindex = "http://" + str(ipindex) + ":8005/index/"
     dict={ 'ipindex': ipindex,'resultshow':'display: none;'}
+    tkey = request.session.session_key
+    ramark='cat'
+    tkey=ramark+tkey
+    print(tkey)
     return render(request, "img_recognition.html", dict)
-
+@login_required
 def img_rec_action(request):
 
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
@@ -22,9 +28,11 @@ def img_rec_action(request):
     url = "http://" + str(ipindex) + ":8009/api/upload/"  # production
     #url = "http://localhost:8000/api/upload/"  # local test, Commented out in production
     #url = "http://15.236.92.5:8009/api/upload/"  # production
-
+    remark=request.POST.get("remark")
+    sessionkey = request.session.session_key
+    remark=remark+sessionkey
     fileDic = {'file': request.FILES.get("file", None)}
-    rmarkDic = {'remark': request.POST.get("remark")}  # post.get -> WSGI request
+    rmarkDic = {'remark': remark}  # post.get -> WSGI request
 
     requests.post(url, data=rmarkDic, files=fileDic)
 
