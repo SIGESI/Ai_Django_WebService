@@ -36,6 +36,10 @@ def img_rec_action(request):
 
     requests.post(url, data=rmarkDic, files=fileDic)
 
+    filenameurl="http://" + str(ipindex) + ":8009/api/getfilename/"
+    fnrep= requests.get(filenameurl, data=rmarkDic)
+    fnrepjson=fnrep.json()
+
     recurl = "http://" + str(ipindex) + ":8009/api/image_recognition/"  # production
     #recurl = "http://localhost:8000/api/image_recognition/"
     #recurl = "http://15.236.92.5:8009/api/image_recognition/"
@@ -55,5 +59,5 @@ def img_rec_action(request):
     ipindex = "http://" + str(ipindex) + ":8005/index/"
     dict['ipindex'] = ipindex
     dict['resultshow'] = ''
-    dict['resulpath'] = ''
+    dict['resulpath'] = '/media/'+str(fnrepjson['filename'])
     return render(request, "img_recognition.html", dict)
