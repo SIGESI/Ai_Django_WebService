@@ -15,4 +15,4 @@ EXPOSE 8001
 
 ENTRYPOINT ["python", "manage.py"]
 
-CMD ["runserver", "0.0.0.0:8005"]
+CMD ["runserver", "0.0.0.0:8001"]
