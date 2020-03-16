@@ -14,11 +14,11 @@ def img_rec(request):
 
     ipindex = load(req.urlopen('http://jsonip.com'))['ip']
     ipindex = "http://" + str(ipindex) + ":8005/index/"
-    dict={ 'ipindex': ipindex,'resultshow':'display: none;'}
-    tkey = request.session.session_key
-    ramark='cat'
-    tkey=ramark+tkey
-    print(tkey)
+    dict={ 'ipindex': ipindex,'resultshow':'display: none;', 'resulpath':'/Sharedvolume/static/home/img/team/team-01.jpg'}
+    #tkey = request.session.session_key
+    #ramark='cat'
+    #tkey=ramark+tkey
+    #print(tkey)
     return render(request, "img_recognition.html", dict)
 @login_required
 def img_rec_action(request):
@@ -55,4 +55,5 @@ def img_rec_action(request):
     ipindex = "http://" + str(ipindex) + ":8005/index/"
     dict['ipindex'] = ipindex
     dict['resultshow'] = ''
+    dict['resulpath'] = ''
     return render(request, "img_recognition.html", dict)
