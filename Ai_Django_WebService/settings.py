@@ -131,5 +131,6 @@ STATICFILES_DIRS=(
     os.path.join(STATIC_DIR, 'static'),
 )
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/Sharedvolume/static/media/'
+MEDIA_DIR = BASE_DIR+"/Sharedvolume/static"
+MEDIA_ROOT = os.path.join(MEDIA_DIR, "media")
