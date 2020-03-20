@@ -62,7 +62,7 @@ def img_rec_action(request):
         #ipindex = "http://localhost:8005/index/"
         dict['ipindex'] = ipindex
         dict['resultshow'] = ''
-        repath="/media/" + str(fnrepjson['filename'])
+        repath="/Sharedvolume/static/media/" + str(fnrepjson['filename'])
         dict['resulpath'] =repath
         return render(request, "img_recognition.html", dict)
 
