@@ -3,8 +3,18 @@ from django.test import TestCase
 # Create your tests here.
 import requests
 
-fndic={'filename':'bid'}
-recurl = "http://localhost:8000/api/getfilename/"
+fndic={'remark':'bid'}
+recurl = "http://localhost:8005/api/getfilename/"
 rep = requests.get(recurl, data=fndic)
 
 print(rep)
+
+repj=rep.json()
+print(repj)
+repstr=str(repj['filename'])
+print(repstr)
+repath = "/media/" + str(repj['filename'])
+print(repath)
+dict = {}
+dict['resulpath'] =repath
+print(dict)
