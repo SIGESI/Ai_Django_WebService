@@ -18,7 +18,7 @@ from django.urls import path
 
 from App1_login_home.views import login # or from myApp_2_login import views
 from App1_login_home.views import login_action
-from App1_login_home.views import index
+from App1_login_home.views import index,logout
 from App1_login_home.views import index_action
 from App2_image_rec.views import img_rec
 from App2_image_rec.views import img_rec_action
@@ -28,6 +28,7 @@ urlpatterns = [
     # app1 login
     path('login/', login),
     path('login_action/', login_action),
+    path('logout/', logout),
     # app1 home(index)
     path('index/', index),
     path('index_action/', index_action),

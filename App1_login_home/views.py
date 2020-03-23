@@ -42,3 +42,9 @@ def index_action(request):
 
     response = HttpResponseRedirect('/img_rec/')
     return response
+
+@login_required
+def logout(request):
+    request.session.flush()
+    return HttpResponseRedirect('/login/')
+    #return render(request,'login.html')
