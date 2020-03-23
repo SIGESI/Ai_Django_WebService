@@ -10,7 +10,7 @@ import random
 @login_required
 def img_rec(request):
     ip_parameter=Get_ip_parameter()
-    ip_parameter.get_ip_parameter_test()
+    #ip_parameter.get_ip_parameter_test()
     ipindex = ip_parameter.ipindex
     dict={ 'ipindex': ipindex,'resultshow':'display: none;', 'resulpath':'/Sharedvolume/static/home/img/team/team-01.jpg'}
 
@@ -18,7 +18,7 @@ def img_rec(request):
 @login_required
 def img_rec_action(request):
     ip_parameter=Get_ip_parameter()
-    ip_parameter.get_ip_parameter_test()
+    #ip_parameter.get_ip_parameter_test()
     if (request.FILES.get("file", None)) is not None:#and (request.POST.get("remark")) is not None:
         remark=''
         if (request.POST.get("remark")) is not None:
