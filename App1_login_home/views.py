@@ -28,17 +28,11 @@ def login_action(request):
         return render(request,'login.html')
 @login_required
 def index(request):
-    #return HttpResponse("myapp2")
-
-    #ip1=req.urlopen('http://ip.42.pl/raw').read()
-    ip1 = load(req.urlopen('http://jsonip.com'))['ip']
-    #ip1="localhost"
-    #print(ip1)
-    ip1="http://"+str(ip1)+":8005/img_rec/"
-    return render(request, "index.html",{'ipimgrec': ip1})
+    ipimgrec = load(req.urlopen('http://jsonip.com'))['ip']
+    ipimgrec="http://"+str(ipimgrec)+":8005/img_rec/" #ipimgrec="http://localhost:8005/img_rec/"
+    return render(request, "index.html",{'ipimgrec': ipimgrec})
 @login_required
 def index_action(request):
-    #return HttpResponse("myapp2")
 
     response = HttpResponseRedirect('/img_rec/')
     return response
