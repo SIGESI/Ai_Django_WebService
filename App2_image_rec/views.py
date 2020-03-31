@@ -18,7 +18,7 @@ class Img_rec_view:
         dict = {'ipindex': ipindex, 'resultshow': 'display: none;',
                 'resulpath': '/Sharedvolume/static/home/img/team/team-01.jpg'}
 
-        return render(request, "img_recognition.html", dict)
+        return render(request, "img_recognition.html/", dict)
 
     @login_required
     def img_rec_action(request):
