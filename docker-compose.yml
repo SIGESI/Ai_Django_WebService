@@ -1,0 +1,27 @@
+version: "2"
+services:
+  base:
+    image: mysong/ai_django_webservice:base
+    ports:
+      - "8080:8080"
+
+  appnew:
+    image: mysong/ai_django_webservice:newapp
+    ports:
+      - "8005:8005"
+    depends_on:
+      - base
+    volumes_from:
+      - base
+
+  api:
+    image: mysong/ai_django_webservice:api
+    ports:
+      - "8009:8009"
+    depends_on:
+      - base
+    volumes_from:
+      - base
+
+
+
