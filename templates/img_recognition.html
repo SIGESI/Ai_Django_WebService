@@ -8,23 +8,23 @@
     <title>Image recognition</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/bootstrap.min.css" >
     <!-- Icon -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/fonts/line-icons.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/fonts/line-icons.css">
     <!-- Slicknav -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/slicknav.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/slicknav.css">
     <!-- Owl carousel -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/owl.theme.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/owl.theme.css">
     <!-- Slick Slider -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/slick.css" >
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/slick-theme.css" >
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/slick.css" >
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/slick-theme.css" >
     <!-- Animate -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/animate.css">
     <!-- Main Style -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/main.css">
     <!-- Responsive Style -->
-    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/home/css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/Sharedvolume/static/recimg/css/responsive.css">
 
     <link rel="stylesheet" href="/Sharedvolume/static/listcss/amazeui.min.css" />
     <link href="/Sharedvolume/static/fileupassetes/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
@@ -46,7 +46,7 @@ $(function(){
 
   <body >
 
-  <a href="#team" class="back-to-top" ><span id="sp"></span></a>
+  <a href="#result" class="back-to-top" ><span id="{{ spanid }}">></span></a>
 
     <!-- Header Area wrapper Starts -->
     <header id="header-wrap">
@@ -65,17 +65,17 @@ $(function(){
           <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto w-100 justify-content-left clearfix">
               <li class="nav-item active">
-                <a class="nav-link" href="#hero-area">
+                <a class="nav-link" href="#introduction">  <!--  "#hero-area"> -->
                   Introduction
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#services">
+                <a class="nav-link" href="#recognize">  <!-- "#services"> -->
                   Start to recognize
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#team">
+                <a class="nav-link" href="#result">          <!-- "#team"> -->
                   Recognition result
                 </a>
               </li>
@@ -96,38 +96,18 @@ $(function(){
         <!-- Mobile Menu Start -->
         <ul class="mobile-menu navbar-nav">
           <li>
-            <a class="page-scroll" href="#hero-area">
-              Home
+            <a class="page-scroll" href="#introduction">
+              Introduction
             </a>
           </li>
           <li>
-            <a class="page-scroll" href="#services">
-              Services
+            <a class="page-scroll" href="#recognize">
+                  Recognition result
             </a>
           </li>
           <li>
-            <a class="page-scroll" href="#feature">
-              feature
-            </a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#team">
-              Team
-            </a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#testimonial">
-              Testimonial
-            </a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#pricing">
-              Pricing
-            </a>
-          </li>
-          <li>
-            <a class="page-scroll" href="#contact">
-              Contact
+            <a class="page-scroll" href="#result">
+                  Recognition result
             </a>
           </li>
         </ul>
@@ -137,7 +117,7 @@ $(function(){
       <!-- Navbar End -->
 
       <!-- Hero Area Start -->
-      <div id="hero-area" class="hero-area-bg">
+      <div id="introduction" class="introduction-bg">
         <div class="overlay"></div>
         <div class="container">
           <div class="row">
@@ -146,7 +126,7 @@ $(function(){
                 <h2 class="head-title wow fadeInUp">Image recognition </h2>
               </div>
               <div class="img-thumb text-center wow fadeInUp" data-wow-delay="0.6s">
-                <img class="img-fluid" src="/Sharedvolume/static/home/img/img_rec2.png" alt="">
+                <img class="img-fluid" src="/Sharedvolume/static/recimg/img/img_rec2.png" alt="">
               </div>
 
             </div>
@@ -158,14 +138,14 @@ $(function(){
     </header>
     <!-- Header Area wrapper End -->
 
-    <!-- Services Section Start -->
-    <section id="services" class="section-padding">
+    <!-- recognize Section Start -->
+    <section id="recognize" class="section-padding">
       <div class="container">
         <div class="section-header text-center">
           <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Start to recognize</h2>
         </div>
 
-          <!-- Services item -->
+          <!-- recognize item -->
 
    <!--
     <input type="file" name="file" onchange="showPreview(this)" />
@@ -189,13 +169,13 @@ $(function(){
 
             </div>
 
-          <!-- Services item -->
+          <!-- recognize item -->
         </div>
     </section>
-    <!-- Services Section End -->
+    <!-- recognize Section End -->
 
-    <!-- Team Section Start -->
-    <section id="team" class="section-padding text-center">
+    <!-- result Section Start -->
+    <section id="result" class="section-padding text-center">
       <div class="container" >
         <div class="row">
           <div class="col-12">
@@ -205,9 +185,9 @@ $(function(){
           </div>
         </div>
 
-            <!-- Team Item Starts -->
-            <div class="team-item text-center" >
-                <div class="team-img text-center">
+            <!-- result Item Starts -->
+            <div class="result-item text-center" >
+                <div class="result-img text-center">
                     <img class="img-fluid " src="{{ resulpath }}" alt="">
                 </div>
                 <hr>
@@ -252,10 +232,10 @@ $(function(){
                     </table>
                 </div>
             </div>
-            <!-- Team Item Ends -->
+            <!-- result Item Ends -->
       </div>
     </section>
-    <!-- Team Section End -->
+    <!-- result Section End -->
 
 
 
@@ -273,19 +253,19 @@ $(function(){
     <!-- End Preloader -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <!--        <script src="/Sharedvolume/static/home/js/popper.min.js"></script>    -->
+     <!--        <script src="/Sharedvolume/static/recimg/js/popper.min.js"></script>    -->
 
-    <script src="/Sharedvolume/static/home/js/bootstrap.min.js"></script>
-    <script src="/Sharedvolume/static/home/js/owl.carousel.min.js"></script>
-    <script src="/Sharedvolume/static/home/js/slick.min.js"></script>
-    <script src="/Sharedvolume/static/home/js/wow.js"></script>
-    <script src="/Sharedvolume/static/home/js/jquery.nav.js"></script>
-    <script src="/Sharedvolume/static/home/js/scrolling-nav.js"></script>
-    <script src="/Sharedvolume/static/home/js/jquery.easing.min.js"></script>
-    <script src="/Sharedvolume/static/home/js/jquery.slicknav.js"></script>
-    <script src="/Sharedvolume/static/home/js/main.js"></script>
-    <script src="/Sharedvolume/static/home/js/form-validator.min.js"></script>
-    <script src="/Sharedvolume/static/home/js/contact-form-script.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/bootstrap.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/owl.carousel.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/slick.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/wow.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/jquery.nav.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/scrolling-nav.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/jquery.easing.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/jquery.slicknav.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/main.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/form-validator.min.js"></script>
+    <script src="/Sharedvolume/static/recimg/js/contact-form-script.min.js"></script>
 
 
 

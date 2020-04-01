@@ -13,17 +13,17 @@ class Img_rec_view:
     @login_required
     def img_rec(request):
         ip_parameter = Get_ip_parameter()
-        # ip_parameter.get_ip_parameter_test()
+        ip_parameter.get_ip_parameter_test()
         ipindex = ip_parameter.ipindex
         dict = {'ipindex': ipindex, 'resultshow': 'display: none;',
-                'resulpath': '/Sharedvolume/static/home/img/team/team-01.jpg'}
+                'resulpath': '/Sharedvolume/static/home/img/team/team-01.jpg','spanid':''}
 
         return render(request, "img_recognition.html/", dict)
 
     @login_required
     def img_rec_action(request):
         ip_parameter = Get_ip_parameter()
-        # ip_parameter.get_ip_parameter_test()
+        ip_parameter.get_ip_parameter_test()
         if (request.FILES.get("file", None)) is not None:  # and (request.POST.get("remark")) is not None:
             remark = ''
             if (request.POST.get("remark")) is not None:
@@ -57,6 +57,8 @@ class Img_rec_view:
             dict['resultshow'] = ''
             repath = "/Sharedvolume/static/media/" + str(fnrepjson['filename'])
             dict['resulpath'] = repath
+            dict['spanid'] = 'sp'
+
             return render(request, "img_recognition.html", dict)
 
         else:
