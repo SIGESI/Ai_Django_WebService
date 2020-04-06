@@ -10,3 +10,6 @@ def accestoken():
     response = request.urlopen(req, context=gcontext).read().decode('UTF-8')
     accresult = json.loads(response)
     return accresult
+
+res=accestoken()
+print(res)

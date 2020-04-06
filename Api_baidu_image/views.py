@@ -23,7 +23,7 @@ class BaiduimageView(APIView):
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-        access_token = '24.86363b027e8bf45d97a96aca7537604f.2592000.1586016738.282335-18692896'
+        access_token = '24.360c74017f8ebddeebb228841fa6e186.2592000.1588725752.282335-18692896'
         host = host + '?access_token=' + access_token
 
         data = {}
